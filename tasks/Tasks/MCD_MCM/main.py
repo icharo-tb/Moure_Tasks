@@ -1,21 +1,19 @@
 def greatest_common_divisor(a,b):
     # Euclides Algorithm
-    if a<b:
-        remainder_a = b%a
-        remainder_b = a%remainder_a
-    elif a>b:
-        remainder_a = a%b
-        remainder_b = b%remainder_a
-
-    if b%remainder_a == 0:
-        gcd = remainder_a
-    elif b%remainder_a != 0:
-        gcd = gcd = remainder_a%remainder_b
-    
-    #return f"Quotient of {a} is {quotient_a}{nl}Remainder of {a} is {remainder_a}"
-    return f"GCD of {a} and {b} is {gcd}"
+    if b == 0:
+        return a
+    else:
+        return greatest_common_divisor(b,a%b)    
 pass
-print(greatest_common_divisor(34,12))
+
+print(greatest_common_divisor(60,48))
 
 def least_common_multiple(a,b):
-    pass
+    if a > b:
+        a,b = b,a
+    for i in range(b,a*b+1,b):
+       if i%a == 0:
+        return i 
+pass
+
+print(least_common_multiple(3,4))
